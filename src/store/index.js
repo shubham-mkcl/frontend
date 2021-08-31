@@ -5,11 +5,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+    isAuthenticated:false,
+ },
+ mutations: {
+   check(state,app){
+     if(app.$session.exists("username")){
+       state.isAuthenticated=true
+     }else{
+       state.isAuthenticated=false
+     }
+   }
+ },
+ getters:{
+  
+ },
+ actions: {
+ },
+ modules: {
+ }
 })
